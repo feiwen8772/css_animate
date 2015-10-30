@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>无标题文档</title>
+    <style>
+        .item, .item2 {
+            width:50px;
+            height: 50px;
+            display: inline-block;
+            position: absolute;
+            top: 100px;
+            left: 0px;
+            background-color: red;
+        }
+
+        .wraper {
+            animation: vertical-animation 3s ease-in 1s 1;
+            -webkit-animation: vertical-animation 3s ease-in 1s 1;
+            -moz-animation: vertical-animation 3s ease-in 1s 1;
+            animation-play-state:paused;
+            -webkit-animation-play-state:paused;
+            animation-fill-mode:forwards;
+            -webkit-animation-fill-mode:forwards;
+
+        }
+
+        .wraper .item {
+            animation: hor-animation 3s linear 1s 1;
+            -webkit-animation: hor-animation 3s linear 1s 1;
+            -moz-animation: hor-animation 3s linear 1s 1;
+            animation-play-state:paused;
+            -webkit-animation-play-state:paused;
+            animation-fill-mode:forwards;
+            -webkit-animation-fill-mode:forwards
+        }
+
+        @-moz-keyframes hor-animation {
+            0% { transform: translateX(0px);     }
+            100% { transform: translateX(400px); }
+        }
+         @-webkit-keyframes hor-animation {
+            0% { transform: translateX(0px);     }
+            100% { transform: translateX(400px); }
+        }
+
+        @-moz-keyframes vertical-animation {
+            0% { transform: translateY(0px);     }
+            100% { transform: translateY(400px); }
+        }
+         @-webkit-keyframes vertical-animation {
+            0% { transform: translateY(0px);     }
+            100% { transform: translateY(400px); }
+        }
+
+        .item2 {
+            top: 150px;
+            left: 0px;
+            transition: top 3s ease-in 1s,
+                        left 3s linear 1s;
+            -webkit-transition: top 3s ease-in 1s,
+                                left 3s linear 1s;
+            -moz-transition: top 3s ease-in 1s,
+                             left 3s linear 1s;
+        }
+    </style>
+</head>
+
+<body>
+<div class="wraper"><div class="item"></div></div>
+<div class="item2"></div>
+<script>window.onload = function(){
+    var item2 = document.querySelector(".item2"),
+        item = document.querySelector(".item"),
+        warper = document.querySelector(".warper");
+
+    item2.style.top = "550px";
+    item2.style.left = "400px";
+    item.style.animationPlayState = "running";
+    item.style.webkitAnimationPlayState = "running";
+    warper.style.animationPlayState = "running";
+    warper.style.webkitAnimationPlayState = "running";
+}</script>
+</body>
+</html>
